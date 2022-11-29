@@ -35,6 +35,11 @@ open class JXSegmentedTitleImageDataSource: JXSegmentedTitleDataSource {
     open var isImageZoomEnabled: Bool = false
     /// 图片缩放选中时的scale
     open var imageSelectedZoomScale: CGFloat = 1.2
+    
+    open var showBackGroundView: Bool = false
+    open var normalBackGroundColor: UIColor = .clear
+    open var selectedBackGroundColor: UIColor = .clear
+    open var selectedBackGroundBorderColor: UIColor = .black
 
     open override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
         return JXSegmentedTitleImageItemModel()
@@ -56,6 +61,11 @@ open class JXSegmentedTitleImageDataSource: JXSegmentedTitleDataSource {
         itemModel.imageNormalZoomScale = 1
         itemModel.imageSelectedZoomScale = imageSelectedZoomScale
         itemModel.titleImageSpacing = titleImageSpacing
+        itemModel.showBackGroundView = showBackGroundView
+        itemModel.normalBackGroundColor = normalBackGroundColor
+        itemModel.selectedBackGroundColor = selectedBackGroundColor
+        itemModel.selectedBackGroundBorderColor = selectedBackGroundBorderColor
+
         if index == selectedIndex {
             itemModel.imageCurrentZoomScale = itemModel.imageSelectedZoomScale
         }else {

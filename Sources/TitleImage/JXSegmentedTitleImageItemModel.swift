@@ -19,4 +19,8 @@ open class JXSegmentedTitleImageItemModel: JXSegmentedTitleItemModel {
     open var imageNormalZoomScale: CGFloat = 0
     open var imageCurrentZoomScale: CGFloat = 0
     open var imageSelectedZoomScale: CGFloat = 0
+    open var showBackGroundView: Bool = false
+    open var normalBackGroundColor: UIColor = .clear
+    open var selectedBackGroundColor: UIColor = .clear
+    open var selectedBackGroundBorderColor: UIColor = .black
 }

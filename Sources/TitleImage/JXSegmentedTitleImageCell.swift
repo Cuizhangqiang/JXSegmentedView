@@ -15,6 +15,7 @@ open class JXSegmentedTitleImageCell: JXSegmentedTitleCell {
     open override func prepareForReuse() {
         super.prepareForReuse()
 
+        self.backgroundColor = .orange
         currentImageInfo = nil
     }
 
@@ -77,6 +78,19 @@ open class JXSegmentedTitleImageCell: JXSegmentedTitleCell {
         var normalImageInfo = myItemModel.normalImageInfo
         if myItemModel.isSelected && myItemModel.selectedImageInfo != nil {
             normalImageInfo = myItemModel.selectedImageInfo
+        }
+        
+        if myItemModel.showBackGroundView {
+            if myItemModel.isSelected {
+                contentView.backgroundColor = myItemModel.selectedBackGroundColor
+                contentView.layer.cornerRadius = contentView.frame.height/2
+                contentView.layer.borderWidth = 0
+            }else{
+                contentView.backgroundColor = myItemModel.normalBackGroundColor
+                contentView.layer.cornerRadius = contentView.frame.height/2
+                contentView.layer.borderWidth = 1
+                contentView.layer.borderColor = myItemModel.selectedBackGroundBorderColor.cgColor
+            }
         }
 
         //因为`func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType)`方法会回调多次，尤其是左右滚动的时候会调用无数次。如果每次都触发图片加载，会非常消耗性能。所以只会在图片发生了变化的时候，才进行图片加载。
