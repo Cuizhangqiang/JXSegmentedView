@@ -14,8 +14,6 @@ open class JXSegmentedTitleImageCell: JXSegmentedTitleCell {
 
     open override func prepareForReuse() {
         super.prepareForReuse()
-
-        self.backgroundColor = .orange
         currentImageInfo = nil
     }
 
