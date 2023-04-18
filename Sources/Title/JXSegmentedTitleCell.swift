@@ -148,6 +148,22 @@ open class JXSegmentedTitleCell: JXSegmentedBaseCell {
                 titleLabel.textColor = myItemModel.titleCurrentColor
             }
         }
+        
+        if myItemModel.showTitleShadow {
+            if myItemModel.isSelected {
+                let shadow = NSShadow.init()
+                shadow.shadowColor = UIColor.black.withAlphaComponent(0.5)
+                shadow.shadowBlurRadius = 1
+                shadow.shadowOffset = CGSize(width: 1.5, height: 1.5)
+                titleLabel.attributedText = NSAttributedString.init(string: title,attributes: [.shadow:shadow,.font:myItemModel.titleSelectedFont])
+            }else{
+                let shadow = NSShadow.init()
+                shadow.shadowColor = UIColor.black.withAlphaComponent(0.5)
+                shadow.shadowBlurRadius = 1
+                shadow.shadowOffset = CGSize(width: 1.5, height: 1.5)
+                titleLabel.attributedText = NSAttributedString.init(string: title,attributes: [.shadow:shadow,.font:myItemModel.titleNormalFont])
+            }
+        }
 
         startSelectedAnimationIfNeeded(itemModel: itemModel, selectedType: selectedType)
 

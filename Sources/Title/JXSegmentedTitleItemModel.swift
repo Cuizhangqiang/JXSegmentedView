@@ -26,4 +26,5 @@ open class JXSegmentedTitleItemModel: JXSegmentedBaseItemModel {
     open var titleSelectedStrokeWidth: CGFloat = 0
     open var isTitleMaskEnabled: Bool = false
     open var textWidth: CGFloat = 0
+    open var showTitleShadow: Bool = false // 显示阴影
 }

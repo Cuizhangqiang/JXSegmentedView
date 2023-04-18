@@ -12,6 +12,8 @@ import  UIKit
 open class JXSegmentedBaseDataSource: JXSegmentedViewDataSource {
     /// 最终传递给JXSegmentedView的数据源数组
     open var dataSource = [JXSegmentedBaseItemModel]()
+    /// 是否显示标题的阴影
+    open var showTitleShadow = false
     /// cell的宽度。为JXSegmentedViewAutomaticDimension时就以内容计算的宽度为准，否则以itemWidth的具体值为准。
     open var itemWidth: CGFloat = JXSegmentedViewAutomaticDimension
     /// 真实的item宽度 = itemWidth + itemWidthIncrement。
@@ -55,6 +57,9 @@ open class JXSegmentedBaseDataSource: JXSegmentedViewDataSource {
         for index in 0..<preferredItemCount() {
             let itemModel = preferredItemModelInstance()
             preferredRefreshItemModel(itemModel, at: index, selectedIndex: selectedIndex)
+            if showTitleShadow, let model = itemModel as? JXSegmentedTitleItemModel {
+                model.showTitleShadow = true
+            }
             dataSource.append(itemModel)
         }
     }
